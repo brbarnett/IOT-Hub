@@ -74,27 +74,23 @@ namespace SmartMeterSimulator
             //Make sure we're connected
             if (registryManager == null)
                 IotHubConnect(connectionString);
-
-
+            
             bool success = false;
             Device device = null;
 
             try
-            { 
-                //TODO: 8.Fetch the device
-                //device = await ...;
+            {
+                device = await registryManager.GetDeviceAsync(deviceId);
 
-                //TODO: 9.Verify the device keys match
-                //if (deviceKey == //device.Authentication...)
-                //{ 
-                //    //TODO: 10.Enable the device
-                //    //device.Status = ...;
+                if (deviceKey == device?.Authentication?.SymmetricKey?.PrimaryKey)
+                {
+                    device.Status = DeviceStatus.Enabled;
 
-                //    //TODO: 11.Update IoT Hubs
-                //    //await ...;
+                    //TODO: 11.Update IoT Hubs
+                    //await ...;
 
-                //    success = true;
-                //}
+                    success = true;
+                }
             }
             catch(Exception)
             {
