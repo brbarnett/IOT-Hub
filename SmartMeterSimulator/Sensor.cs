@@ -74,6 +74,8 @@ namespace SmartMeterSimulator
         /// </summary>
         public async void SendMessageAsync()
         {
+            if (_DeviceClient == null) return;
+
             var telemetryDataPoint = new
             {
                 id = DeviceId,
