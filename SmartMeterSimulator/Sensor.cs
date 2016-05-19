@@ -82,8 +82,7 @@ namespace SmartMeterSimulator
 
             var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
 
-            //TODO: 19.Encode the JSON string to ASCII as bytes and create new Message with the bytes
-            //var message = new Message(...);
+            var message = new Message(System.Text.ASCIIEncoding.ASCII.GetBytes(messageString));
 
             //TODO: 20.Send the message to the IoT Hub
             //await _DeviceClient...;
