@@ -145,9 +145,12 @@ namespace SmartMeterSimulator
             if (registryManager == null)
                 IotHubConnect(connectionString);
 
-                //TODO: 15.Remove the device from the Registry
-                //await registryManager...;
+            Device device = await registryManager.GetDeviceAsync(deviceId);
 
+            if(device != null)
+            {
+                await registryManager.RemoveDeviceAsync(device);
+            }
         }
 
         /// <summary>
