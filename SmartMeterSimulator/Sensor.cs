@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 
@@ -82,7 +83,7 @@ namespace SmartMeterSimulator
 
             var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
 
-            var message = new Message(System.Text.ASCIIEncoding.ASCII.GetBytes(messageString));
+            var message = new Message(ASCIIEncoding.ASCII.GetBytes(messageString));
 
             //TODO: 20.Send the message to the IoT Hub
             //await _DeviceClient...;
