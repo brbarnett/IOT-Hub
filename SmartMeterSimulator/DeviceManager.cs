@@ -43,19 +43,15 @@ namespace SmartMeterSimulator
 
             try
             {
-                //TODO: 4.Register the new device
-                device = await RegisterDevicesAsync(connectionString, deviceId);
+                device = await registryManager.AddDeviceAsync(device);
             }
             catch (DeviceAlreadyExistsException)
             {
-                //TODO: 5.Device already exists, get the registered device
-                //device = await ...;
+                device = await registryManager.GetDeviceAsync(deviceId);
 
-                //TODO: 6.Ensure the device is disabled until Activated later
-                //device.Status = ...;
+                device.Status = DeviceStatus.Disabled;
 
-                //TODO: 7.Update IoT Hubs with the device status change
-                //await ...;
+                await registryManager.UpdateDeviceAsync(device);
             }
 
             //return the device key
