@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/SmartMeterSimulator/v14/.suo
+/packages
+/SmartMeterSimulator/bin/Debug
+/SmartMeterSimulator/obj/Debug
