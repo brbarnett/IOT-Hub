@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Text;
 using Microsoft.Azure.Devices.Client;
-using Newtonsoft.Json;
-
 
 namespace SmartMeterSimulator
 {
@@ -56,8 +53,7 @@ namespace SmartMeterSimulator
         /// </summary>
         public void ConnectDevice()
         {
-            //TODO: 17. Connect the Device to Iot Hub by creating an instance of DeviceClient
-            //_DeviceClient = DeviceClient.Create(_IotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey(..., ...));
+            _DeviceClient = DeviceClient.Create(_IotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey(this.DeviceId, this.DeviceKey));
 
             //Set the Device State to Ready
             State = DeviceState.Ready;
