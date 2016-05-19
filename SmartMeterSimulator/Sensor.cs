@@ -85,8 +85,7 @@ namespace SmartMeterSimulator
 
             var message = new Message(ASCIIEncoding.ASCII.GetBytes(messageString));
 
-            //TODO: 20.Send the message to the IoT Hub
-            //await _DeviceClient...;
+            await _DeviceClient.SendEventAsync(message);
         }
     }
     public enum DeviceState
