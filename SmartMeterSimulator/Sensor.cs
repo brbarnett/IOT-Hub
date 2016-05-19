@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Azure.Devices.Client;
+using Newtonsoft.Json;
 
 namespace SmartMeterSimulator
 {
@@ -79,8 +80,7 @@ namespace SmartMeterSimulator
                 temp = CurrentTemperature
             };
 
-            //TODO: 18.Serialize the telemetryDataPoint to JSON
-            //var messageString = JsonConvert...;
+            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
 
             //TODO: 19.Encode the JSON string to ASCII as bytes and create new Message with the bytes
             //var message = new Message(...);
