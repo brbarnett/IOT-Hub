@@ -86,8 +86,7 @@ namespace SmartMeterSimulator
                 {
                     device.Status = DeviceStatus.Enabled;
 
-                    //TODO: 11.Update IoT Hubs
-                    //await ...;
+                    await registryManager.UpdateDeviceAsync(device);
 
                     success = true;
                 }
@@ -117,8 +116,7 @@ namespace SmartMeterSimulator
 
             try
             {
-                //TODO: 12.Lookup the device from the registry by deviceId
-                //device = await registryManager...;
+                device = await registryManager.GetDeviceAsync(deviceId);
 
                 //TODO: 13.Disable the device
                 //device.Status = ...;
