@@ -118,11 +118,9 @@ namespace SmartMeterSimulator
             {
                 device = await registryManager.GetDeviceAsync(deviceId);
 
-                //TODO: 13.Disable the device
-                //device.Status = ...;
+                device.Status = DeviceStatus.Disabled;
 
-                //TODO: 14.Update the registry 
-                //await registryManager...;
+                await registryManager.UpdateDeviceAsync(device);
 
                 success = true;
             }
