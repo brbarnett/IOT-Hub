@@ -168,8 +168,12 @@ namespace SmartMeterSimulator
             {
                 string deviceId = "Device" + i.ToString();
 
-                //TODO: 16.Remove the device from the Registry
-                //await registryManager...;
+                Device device = await registryManager.GetDeviceAsync(deviceId);
+
+                if(device != null)
+                {
+                    await registryManager.RemoveDeviceAsync(device);
+                }
             }
 
         }
